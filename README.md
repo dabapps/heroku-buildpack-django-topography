@@ -1,6 +1,6 @@
 # topography buildpack
 
-Heroku buildpack to send the output of [django-topography] to a web service when an app is deployed to Heroku.
+Heroku buildpack to send the output of [django-topography](https://github.com/dabapps/django-topography) to a web service when an app is deployed to Heroku.
 
 Config vars:
 

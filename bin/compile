@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "hello there"
+
 env_dir=$1
 if [ -d "$env_dir" ]; then
     whitelist_regex=${2:-''}
@@ -7,11 +9,15 @@ if [ -d "$env_dir" ]; then
     if [ -d "$env_dir" ]; then
       for e in $(ls $env_dir); do
         echo "$e" | grep -E "$whitelist_regex" | grep -qvE "$blacklist_regex" &&
-        export "$e=$(cat $env_dir/$e)" && echo "exporting $e"
+        export "$e=$(cat $env_dir/$e)"
         :
       done
     fi
 fi
+
+echo $@
+ls $env_dir
+env
 
 if [ -z "${TOPOGRAPHY_URL}" ]; then
     echo "No TOPOGRAPHY_URL set, exiting"

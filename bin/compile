@@ -4,6 +4,8 @@ echo "hello there"
 
 export_env_dir() {
   env_dir=$3
+  echo $3
+  ls $env_dir
   whitelist_regex=${2:-''}
   blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
   if [ -d "$env_dir" ]; then
@@ -18,7 +20,7 @@ export_env_dir() {
 export_env_dir
 
 echo $@
-ls $env_dir
+
 env
 
 if [ -z "${TOPOGRAPHY_URL}" ]; then

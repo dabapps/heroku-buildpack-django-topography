@@ -2,7 +2,7 @@
 
 echo "hello there"
 
-env_dir=$2
+env_dir=$3
 if [ -d "$env_dir" ]; then
     whitelist_regex=${2:-''}
     blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH|LANG)$'}

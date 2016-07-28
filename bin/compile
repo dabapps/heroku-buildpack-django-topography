@@ -3,6 +3,7 @@
 echo "hello there"
 
 export_env_dir() {
+  echo "hello"
   env_dir=$3
   echo $3
   ls $env_dir
@@ -17,7 +18,7 @@ export_env_dir() {
   fi
 }
 
-export_env_dir
+export_env_dir $@
 
 echo $@
 

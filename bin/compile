@@ -27,8 +27,6 @@ BUILD_DIR=$1
 export PYHONHOME=$BUILD_DIR/.heroku/python
 export PYTHONPATH=$BUILD_DIR/
 
-ls -la $1
+echo "Sending topography data"
 
-python -c 'import sys; print(sys.path)'
-
-$BUILD_DIR/.heroku/python/bin/python $BUILD_DIR/manage.py topography | curl -X ${METHOD} --data-binary "@-" ${URL} > /dev/null
+$BUILD_DIR/.heroku/python/bin/python $BUILD_DIR/manage.py topography | curl --silent -X ${METHOD} --data-binary "@-" ${URL} > /dev/null

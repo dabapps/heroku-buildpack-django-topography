@@ -27,8 +27,8 @@ BUILD_DIR=$1
 export PYHONHOME=$BUILD_DIR/.heroku/python
 export PYTHONPATH=$BUILD_DIR/
 
-ls $1
+ls -la $1
 
 python -c 'import sys; print(sys.path)'
 
-/app/.heroku/python/bin/python $BUILD_DIR/manage.py topography | curl -X ${METHOD} --data-binary "@-" ${URL} > /dev/null
+$BUILD_DIR/.heroku/python/bin/python $BUILD_DIR/manage.py topography | curl -X ${METHOD} --data-binary "@-" ${URL} > /dev/null

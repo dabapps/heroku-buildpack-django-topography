@@ -29,4 +29,6 @@ export PYTHONPATH=$BUILD_DIR/
 
 ls $1
 
+python -c 'import sys; print(sys.path)'
+
 python $BUILD_DIR/manage.py topography | curl -X ${METHOD} --data-binary "@-" ${URL} > /dev/null
